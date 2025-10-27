@@ -1,15 +1,32 @@
-import ProfileImage from "../assets/javohir-image.jpg";
 import TextPressure from "@/components/TextPressure";
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import AboutNavigationLink from "@/components/AboutNavigationLink";
 
 gsap.registerPlugin(useGSAP);
+
+interface IPage {
+  title: string;
+  url: string;
+}
+
+const pages: IPage[] = [
+  {
+    title: "Know who i am",
+    url: "/about-me",
+  },
+  {
+    title: "Camera",
+    url: "/camera",
+  },
+];
 
 export default function Home() {
   const [isMouseEntered, setIsMouseEntered] = useState<boolean>(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLHeadingElement>(null);
 
   useGSAP(
     () => {
@@ -36,13 +53,11 @@ export default function Home() {
         ease: "power2.out",
       });
 
-      gsap.to(".profile-image", {
-        opacity: 1,
-        duration: 1,
+      gsap.to('.links', {
+        opacity: 1, 
+        duration: 5,
         ease: "power2.out",
-      });
-
-
+      })
     },
     { scope: containerRef }
   );
@@ -52,77 +67,92 @@ export default function Home() {
       className="min-h-screen relative bg-[#4901ff] text-[#ffffff]"
       ref={containerRef}
     >
-      <div className="p-[50px] grid grid-cols-[60%_40%]">
-        <div className="mt-40">
-          <img
-            src={ProfileImage}
-            alt="Profile Image"
-            className="profile-image opacity-0 w-[350px] h-[350px] cursor-pointer transition-all duration-500 rounded-[175px] hover:rounded-[20px]"
-          />
+      <div className="absolute bottom-20 left-20">
+        <h1
+        ref={logoRef}
+          className={`text-4xl scale-x-[1.80] cursor-pointer opacity-0 transition-all duration-300 text-border-shadow big-title ${
+            isMouseEntered ? "text-[#4901ff]" : ""
+          }`}
+          onMouseEnter={() => setIsMouseEntered(true)}
+          onMouseLeave={() => setIsMouseEntered(false)}
+        >
+          JA <br />
+          VOH <br />
+          IR'S.
+        </h1>
+      </div>
 
-          <p className="text-gray-200 w-[300px] absolute left-28 text-sm mt-3 scale-x-140 hello-text lh-[1.5]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Exercitationem id corrupti nam asperiores blanditiis fugit omnis
-            totam necessitatibus. Vel dolorum non hic molestias nihil impedit
-            excepturi sunt aliquid laudantium tempore!
-          </p>
+      <div className="absolute bottom-7 left-13 flex items-center gap-5 links opacity-0">
+        <div>
+          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+            1.Men haqimda
+          </AboutNavigationLink>
+
+          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+            2.Tajribam
+          </AboutNavigationLink>
         </div>
 
-        <div className="absolute bottom-20 left-20">
-          <h1
-            className={`text-4xl scale-x-[1.80] cursor-pointer opacity-0 transition-all duration-300 text-border-shadow big-title ${
-              isMouseEntered ? "text-[#4901ff]" : ""
-            }`}
-            onMouseEnter={() => setIsMouseEntered(true)}
-            onMouseLeave={() => setIsMouseEntered(false)}
+        <div>
+          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}  >
+            javohir@gmail.com
+          </AboutNavigationLink>
+
+          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+            +998971234567
+          </AboutNavigationLink>
+        </div>
+
+        <div>
+          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+            javohir@gmail.com
+          </AboutNavigationLink>
+
+          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+            +998971234567
+          </AboutNavigationLink>
+        </div>
+      </div>
+
+      <div className="absolute top-20 right-20 h-[calc(100vh-100px)] overflow-y-auto opacity-0 projects">
+        {pages.map((project, index) => (
+          <div
+            style={{ position: "relative", height: "300px" }}
+            className="w-[120vh] px-10"
+            onClick={() => (window.location.href = project.url)}
           >
-            JA <br />
-            VOH <br />
-            IR'S.
-          </h1>
+            <TextPressure
+              text={project.title}
+              key={index}
+              className="cursor-pointer"
+              flex={true}
+              alpha={false}
+              stroke={false}
+              width={true}
+              weight={true}
+              italic={true}
+              textColor="#000"
+              strokeColor="#ff0000"
+              minFontSize={36}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="absolute right-12 bottom-10 flex items-start flex-col gap-3 socials opacity-0">
+        <div className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group">
+          <i className="fa-brands fa-linkedin group-hover:scale-130 transition-all duration-300"></i>
+          <p>Linkedin</p>
         </div>
 
-        <div className="absolute left-12 bottom-10 flex items-center gap-5 socials opacity-0">
-          <div className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group">
-            <i className="fa-brands fa-linkedin group-hover:scale-130 transition-all duration-300"></i>
-            <p>Linkedin</p>
-          </div>
-
-          <div className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group">
-            <i className="fa-brands fa-telegram group-hover:scale-130 transition-all duration-300"></i>
-            <p>Telegram</p>
-          </div>
-
-          <div className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group">
-            <i className="fa-brands fa-artstation group-hover:scale-130 transition-all duration-300"></i>
-            <p>Artstation</p>
-          </div>
+        <div className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group">
+          <i className="fa-brands fa-telegram group-hover:scale-130 transition-all duration-300"></i>
+          <p>Telegram</p>
         </div>
 
-        <div className="absolute top-20 right-20 h-[calc(100vh-100px)] overflow-y-auto opacity-0 projects">
-          {["Project1", "Project2", "Project3", "Project4", "Project5"].map(
-            (project, index) => (
-              <div
-                style={{ position: "relative", height: "300px" }}
-                className="w-[120vh] px-10"
-              >
-                <TextPressure
-                  text={project}
-                  key={index}
-                  className="cursor-pointer"
-                  flex={true}
-                  alpha={false}
-                  stroke={false}
-                  width={true}
-                  weight={true}
-                  italic={true}
-                  textColor="#000"
-                  strokeColor="#ff0000"
-                  minFontSize={36}
-                />
-              </div>
-            )
-          )}
+        <div className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group">
+          <i className="fa-brands fa-artstation group-hover:scale-130 transition-all duration-300"></i>
+          <p>Artstation</p>
         </div>
       </div>
     </div>
