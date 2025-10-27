@@ -53,11 +53,11 @@ export default function Home() {
         ease: "power2.out",
       });
 
-      gsap.to('.links', {
-        opacity: 1, 
+      gsap.to(".links", {
+        opacity: 1,
         duration: 5,
         ease: "power2.out",
-      })
+      });
     },
     { scope: containerRef }
   );
@@ -67,9 +67,9 @@ export default function Home() {
       className="min-h-screen relative bg-[#4901ff] text-[#ffffff]"
       ref={containerRef}
     >
-      <div className="absolute bottom-20 left-20">
+      <div className="absolute bottom-30 left-20">
         <h1
-        ref={logoRef}
+          ref={logoRef}
           className={`text-4xl scale-x-[1.80] cursor-pointer opacity-0 transition-all duration-300 text-border-shadow big-title ${
             isMouseEntered ? "text-[#4901ff]" : ""
           }`}
@@ -82,24 +82,14 @@ export default function Home() {
         </h1>
       </div>
 
-      <div className="absolute bottom-7 left-13 flex items-center gap-5 links opacity-0">
+      <div className="absolute bottom-10 left-13 flex items-center gap-5 links opacity-0 z-10">
         <div>
           <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
-            1.Men haqimda
+            3d Modeler & Junior 3d Character Artist
           </AboutNavigationLink>
 
           <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
-            2.Tajribam
-          </AboutNavigationLink>
-        </div>
-
-        <div>
-          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}  >
-            javohir@gmail.com
-          </AboutNavigationLink>
-
-          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
-            +998971234567
+            Qosimov Javohir
           </AboutNavigationLink>
         </div>
 
@@ -110,6 +100,16 @@ export default function Home() {
 
           <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
             +998971234567
+          </AboutNavigationLink>
+        </div>
+
+        <div>
+          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+            Men haqimda &
+          </AboutNavigationLink>
+
+          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+            Tajribam
           </AboutNavigationLink>
         </div>
       </div>
