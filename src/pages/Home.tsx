@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import AboutNavigationLink from "@/components/AboutNavigationLink";
+import ProjectNavigationLink from "@/components/ProjectNavigationLink";
 
 gsap.registerPlugin(useGSAP);
 
@@ -64,7 +65,7 @@ export default function Home() {
 
   return (
     <div
-      className="min-h-screen relative bg-[#4901ff] text-[#ffffff]"
+      className="relative bg-[#4901ff] text-[#ffffff]"
       ref={containerRef}
     >
       <div className="absolute bottom-30 left-20">
@@ -89,7 +90,7 @@ export default function Home() {
           </AboutNavigationLink>
 
           <AboutNavigationLink logoRef={logoRef}>
-            Qosimov Javohir 
+            Qosimov Javohir
           </AboutNavigationLink>
         </div>
 
@@ -108,34 +109,33 @@ export default function Home() {
             Men haqimda &
           </AboutNavigationLink>
 
-          <AboutNavigationLink logoRef={logoRef}>
-            Tajribam
-          </AboutNavigationLink>
+          <AboutNavigationLink logoRef={logoRef}>Tajribam</AboutNavigationLink>
         </div>
       </div>
 
       <div className="absolute top-20 right-20 h-[calc(100vh-100px)] overflow-y-auto opacity-0 projects">
         {pages.map((project, index) => (
-          <div
-            style={{ position: "relative", height: "300px" }}
-            className="w-[120vh] px-10"
-            onClick={() => (window.location.href = project.url)}
-          >
-            <TextPressure
-              text={project.title}
-              key={index}
-              className="cursor-pointer"
-              flex={true}
-              alpha={false}
-              stroke={false}
-              width={true}
-              weight={true}
-              italic={true}
-              textColor="#000"
-              strokeColor="#ff0000"
-              minFontSize={36}
-            />
-          </div>
+          <ProjectNavigationLink url={project.url}>
+            <div
+              style={{ position: "relative", height: "300px" }}
+              className="w-[120vh] px-10"
+            >
+              <TextPressure
+                text={project.title}
+                key={index}
+                className="cursor-pointer"
+                flex={true}
+                alpha={false}
+                stroke={false}
+                width={true}
+                weight={true}
+                italic={true}
+                textColor="#000"
+                strokeColor="#ff0000"
+                minFontSize={36}
+              />
+            </div>
+          </ProjectNavigationLink>
         ))}
       </div>
 
