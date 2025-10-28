@@ -5,7 +5,6 @@ import { XIcon } from "lucide-react";
 
 interface Props {
   children: React.ReactNode;
-  containerRef: React.RefObject<HTMLDivElement | null>;
   logoRef: React.RefObject<HTMLHeadingElement | null>;
 }
 
@@ -71,7 +70,6 @@ const AboutBackgroundContent = () => (
 
 export default function AboutNavigationLink({
   children,
-  containerRef,
   logoRef,
 }: Props) {
   const [showAboutContent, setShowAboutContent] = useState(false);
@@ -108,10 +106,10 @@ export default function AboutNavigationLink({
     if (showAboutContent && logoRef.current) {
       gsap.to(bgRef.current, {
         backgroundColor: "rgba(255, 255, 255, 0.3)",
-        duration: 1,
+        duration: 0.3,
         ease: "power2.inOut",
         opacity: 1,
-        delay: 1,
+        delay: 0.3,
       });
     }
   }, [showAboutContent]);

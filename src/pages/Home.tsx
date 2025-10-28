@@ -84,31 +84,31 @@ export default function Home() {
 
       <div className="absolute bottom-10 left-13 flex items-center gap-5 links opacity-0 z-10">
         <div>
-          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+          <AboutNavigationLink logoRef={logoRef}>
             3d Modeler & Junior 3d Character Artist
           </AboutNavigationLink>
 
-          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
-            Qosimov Javohir
+          <AboutNavigationLink logoRef={logoRef}>
+            Qosimov Javohir 
           </AboutNavigationLink>
         </div>
 
         <div>
-          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+          <AboutNavigationLink logoRef={logoRef}>
             javohir@gmail.com
           </AboutNavigationLink>
 
-          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+          <AboutNavigationLink logoRef={logoRef}>
             +998971234567
           </AboutNavigationLink>
         </div>
 
         <div>
-          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+          <AboutNavigationLink logoRef={logoRef}>
             Men haqimda &
           </AboutNavigationLink>
 
-          <AboutNavigationLink containerRef={containerRef} logoRef={logoRef}>
+          <AboutNavigationLink logoRef={logoRef}>
             Tajribam
           </AboutNavigationLink>
         </div>
