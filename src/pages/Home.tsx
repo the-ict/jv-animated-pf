@@ -31,13 +31,6 @@ export default function Home() {
 
   useGSAP(
     () => {
-      gsap.from(".hello-text", {
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out",
-        delay: 1,
-      });
-
       gsap.to(".big-title", {
         opacity: 1,
         duration: 1,
@@ -65,7 +58,7 @@ export default function Home() {
 
   return (
     <div
-      className="relative bg-[#4901ff] text-[#ffffff]"
+      className="relative bg-[#4901ff] w-full min-h-screen text-[#ffffff]"
       ref={containerRef}
     >
       <div className="absolute bottom-30 left-20">
@@ -115,7 +108,7 @@ export default function Home() {
 
       <div className="absolute top-20 right-20 h-[calc(100vh-100px)] overflow-y-auto opacity-0 projects">
         {pages.map((project, index) => (
-          <ProjectNavigationLink url={project.url}>
+          <ProjectNavigationLink url={project.url} key={index}>
             <div
               style={{ position: "relative", height: "300px" }}
               className="w-[120vh] px-10"
