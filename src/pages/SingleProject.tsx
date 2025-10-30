@@ -112,7 +112,7 @@ export default function SingleProject() {
         <img
           src={ProjectData.projectBigImage}
           alt=""
-          className="w-full h-[60vh] object-cover hero-img"
+          className="w-full h-[60vh] object-contain hero-img"
         />
       </section>
 
@@ -158,11 +158,13 @@ export default function SingleProject() {
                     width: `${100 / ProjectData.sliderImages.length}%`,
                   }}
                 >
-                  <img
-                    src={image}
-                    alt={`Slide ${index + 1}`}
-                    className="w-full h-full object-contain"
-                  />
+                  {
+                    image.endsWith(".mp4") ? (
+                      <video src={image} autoPlay loop muted className="w-full h-full object-contain" />
+                    ) : (
+                      <img src={image} alt="" className="w-full h-full object-contain" />
+                    )
+                  }
                 </div>
               ))}
             </div>
