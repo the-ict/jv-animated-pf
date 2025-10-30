@@ -98,7 +98,7 @@ export default function Home() {
           <ProjectNavigationLink url={`/projects/${index}`} key={index}>
             <div
               style={{ position: "relative" }}
-              className="w-[120vh] px-10 max-lg:w-screen h-[300px] max-lg:h-[100px] my-[130px]"
+              className="w-[120vh] px-10 max-lg:w-screen h-[300px] max-lg:h-[100px] my-[130px] max-lg:my-[200px] max-xl:w-[60vw]"
             >
               <TextPressure
                 text={project.projectName}
@@ -112,7 +112,7 @@ export default function Home() {
                 italic={true}
                 textColor="#000"
                 strokeColor="#ff0000"
-                minFontSize={36}
+                
               />
             </div>
           </ProjectNavigationLink>
