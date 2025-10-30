@@ -87,15 +87,13 @@ export default function Home() {
               <TextPressure
                 text={project.projectName}
                 key={index}
-                className="cursor-pointer"
+                className="cursor-pointer project-text"
                 flex={true}
                 alpha={false}
                 stroke={false}
                 width={true}
                 weight={true}
                 italic={true}
-                textColor="#2a3439"
-                strokeColor="#ff0000"
               />
             </div>
           </ProjectNavigationLink>
