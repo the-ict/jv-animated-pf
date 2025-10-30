@@ -162,7 +162,7 @@ const mockProjectData: IProject[] = [
         "The model was created using Blender’s sculpting tools and rendered with realistic lighting setups. Emphasis was placed on accurate hair shaping, facial details, and Uchiha clan elements to keep the original anime spirit intact.",
     },
     createdBy: "Javohir Qosimov",
-    sliderImages: [Itachi1, Itachi2, Itachi3, Itachi4],
+    sliderImages: [Itachi4,Itachi1, Itachi2, Itachi3],
     referenceImages: [
       ItachiReferences1,
       ItachiReferences2,
