@@ -87,7 +87,9 @@ export default function Home() {
             About me &
           </AboutNavigationLink>
 
-          <AboutNavigationLink logoRef={logoRef}>Experience</AboutNavigationLink>
+          <AboutNavigationLink logoRef={logoRef}>
+            Experience
+          </AboutNavigationLink>
         </div>
       </div>
 
@@ -120,7 +122,9 @@ export default function Home() {
       <div className="absolute right-12 bottom-10 flex items-start flex-col gap-3 socials opacity-0">
         <div
           onClick={() =>
-            window.location.replace("https://www.linkedin.com/in/javohir-qosimov")
+            window.location.replace(
+              "https://www.linkedin.com/in/javohir-qosimov"
+            )
           }
           className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group"
         >

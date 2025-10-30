@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { mockProjectData } from "@/constants/data";
 import { useLocation } from "react-router-dom";
+import Resume from "@/assets/Resume.pdf";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -149,13 +150,21 @@ export default function SingleProject() {
                     width: `${100 / ProjectData.sliderImages.length}%`,
                   }}
                 >
-                  {
-                    image.endsWith(".mp4") ? (
-                      <video src={image} autoPlay loop muted className="w-full h-full object-contain" />
-                    ) : (
-                      <img src={image} alt="" className="w-full h-full object-contain" />
-                    )
-                  }
+                  {image.endsWith(".mp4") ? (
+                    <video
+                      src={image}
+                      autoPlay
+                      loop
+                      muted
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <img
+                      src={image}
+                      alt=""
+                      className="w-full h-full object-contain"
+                    />
+                  )}
                 </div>
               ))}
             </div>
@@ -189,13 +198,13 @@ export default function SingleProject() {
           <h2 className="text-2xl md:text-3xl font-bold mb-4">References</h2>
           <div className="w-20 h-1 bg-black dark:bg-white"></div>
         </div>
-        
+
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
           {ProjectData.referenceImages.map((img, index) => (
             <div key={index} className="break-inside-avoid mb-4 md:mb-6 group">
               <div className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img 
-                  src={img} 
+                <img
+                  src={img}
                   alt={`Reference ${index + 1}`}
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
@@ -204,6 +213,14 @@ export default function SingleProject() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="py-[30px] w-full flex items-center justify-center">
+          <button className="bg-[#4901ff] text-white cursor-pointer border border-white rounded-full py-3 px-6 font-bold hover:bg-white hover:text-[#4901ff] transition-all duration-300">
+            <a href={Resume} download>
+              Download Cv
+            </a>
+          </button>
       </section>
     </div>
   );
