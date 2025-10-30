@@ -145,7 +145,7 @@ export default function SingleProject() {
               {ProjectData.sliderImages.map((image, index) => (
                 <div
                   key={index}
-                  className="w-full h-full flex-shrink-0"
+                  className="w-full h-full shrink-0"
                   style={{
                     width: `${100 / ProjectData.sliderImages.length}%`,
                   }}

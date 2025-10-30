@@ -2,25 +2,18 @@ import AboutNavigationLink from "@/components/AboutNavigationLink";
 import ProjectNavigationLink from "@/components/ProjectNavigationLink";
 import { mockProjectData } from "@/constants/data";
 import TextPressure from "@/components/TextPressure";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 gsap.registerPlugin(useGSAP);
 
 export default function Home() {
-  const [isMouseEntered, setIsMouseEntered] = useState<boolean>(false);
-
   const containerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLHeadingElement>(null);
 
   useGSAP(
     () => {
-      gsap.to(".big-title", {
-        opacity: 1,
-        duration: 1,
-      });
-
       gsap.to(".socials", {
         opacity: 1,
         duration: 2,
@@ -37,6 +30,11 @@ export default function Home() {
         duration: 5,
         ease: "power2.out",
       });
+      gsap.to(".big-title", {
+        opacity: 1,
+        duration: 3,
+        ease: "power2.out",
+      });
     },
     { scope: containerRef }
   );
@@ -46,22 +44,11 @@ export default function Home() {
       className="relative bg-[#4901ff] w-full min-h-screen text-[#ffffff]"
       ref={containerRef}
     >
-      <div className="absolute bottom-30 max-lg:top-5 left-20">
-        <h1
-          ref={logoRef}
-          className={`text-4xl scale-x-[1.80] cursor-pointer opacity-0 transition-all duration-300 text-border-shadow big-title ${
-            isMouseEntered ? "text-[#4901ff]" : ""
-          }`}
-          onMouseEnter={() => setIsMouseEntered(true)}
-          onMouseLeave={() => setIsMouseEntered(false)}
-        >
-          JA <br />
-          VOH <br />
-          IR'S.
-        </h1>
+      <div className="absolute left-13 bottom-30 z-50 text-6xl big-title opacity-0 max-lg:top-5 max-lg:text-2xl">
+        <h1 className="font-mono">JAVOHIR.S</h1>
       </div>
 
-      <div className="absolute bottom-10 left-13 flex items-center max-lg:items-start max-lg:flex-col gap-5 links opacity-0 z-10">
+      <div className="absolute bottom-10 left-13 flex items-center max-lg:items-start max-lg:flex-col gap-5 links opacity-0 z-50">
         <div>
           <AboutNavigationLink logoRef={logoRef}>
             3d Modeler & Junior 3d Character Artist
@@ -93,13 +80,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="absolute top-20 right-20 max-lg:relative max-lg:right-0 max-lg:top-[150px] max-lg:bottom-20 h-[calc(100vh-100px)] max-lg:h-[60vh] overflow-y-auto opacity-0 projects">
+      <div className="flex flex-col gap-10 px-[50px] h-[90vh] overflow-y-scroll items-end max-lg:items-center max-lg:h-[80vh] max-lg:pt-[150px]">
         {mockProjectData.map((project, index) => (
           <ProjectNavigationLink url={`/projects/${index}`} key={index}>
-            <div
-              style={{ position: "relative" }}
-              className="w-[120vh] px-10 max-lg:w-screen h-[300px] max-lg:h-[100px] my-[130px] max-lg:my-[200px] max-xl:w-[60vw]"
-            >
+            <div className="w-[60vw] max-lg:w-[80vw]">
               <TextPressure
                 text={project.projectName}
                 key={index}
@@ -110,9 +94,8 @@ export default function Home() {
                 width={true}
                 weight={true}
                 italic={true}
-                textColor="#000"
+                textColor="#2a3439"
                 strokeColor="#ff0000"
-                
               />
             </div>
           </ProjectNavigationLink>
