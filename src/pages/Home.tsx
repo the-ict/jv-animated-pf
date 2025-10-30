@@ -1,10 +1,10 @@
+import AboutNavigationLink from "@/components/AboutNavigationLink";
+import ProjectNavigationLink from "@/components/ProjectNavigationLink";
+import { mockProjectData } from "@/constants/data";
 import TextPressure from "@/components/TextPressure";
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import AboutNavigationLink from "@/components/AboutNavigationLink";
-import ProjectNavigationLink from "@/components/ProjectNavigationLink";
-import { mockProjectData } from "@/constants/data";
 
 gsap.registerPlugin(useGSAP);
 
@@ -98,7 +98,7 @@ export default function Home() {
           <ProjectNavigationLink url={`/projects/${index}`} key={index}>
             <div
               style={{ position: "relative" }}
-              className="w-[120vh] px-10 max-lg:w-screen h-[300px] max-lg:h-[100px] mt-[50px]"
+              className="w-[120vh] px-10 max-lg:w-screen h-[300px] max-lg:h-[100px] my-[130px]"
             >
               <TextPressure
                 text={project.projectName}
