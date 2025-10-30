@@ -74,24 +74,24 @@ export default function Home() {
 
         <div>
           <AboutNavigationLink logoRef={logoRef}>
-            javohir@gmail.com
+            javohirqosinov555@gmail.com
           </AboutNavigationLink>
 
           <AboutNavigationLink logoRef={logoRef}>
-            +998971234567
+            +998916875714
           </AboutNavigationLink>
         </div>
 
         <div>
           <AboutNavigationLink logoRef={logoRef}>
-            Men haqimda &
+            About me &
           </AboutNavigationLink>
 
-          <AboutNavigationLink logoRef={logoRef}>Tajribam</AboutNavigationLink>
+          <AboutNavigationLink logoRef={logoRef}>Experience</AboutNavigationLink>
         </div>
       </div>
 
-      <div className="absolute top-20 right-20 max-lg:relative max-lg:right-0 max-lg:bottom-20 h-[calc(100vh-100px)] max-lg:h-[60vh] overflow-y-auto opacity-0 projects">
+      <div className="absolute top-20 right-20 max-lg:relative max-lg:right-0 max-lg:top-[150px] max-lg:bottom-20 h-[calc(100vh-100px)] max-lg:h-[60vh] overflow-y-auto opacity-0 projects">
         {mockProjectData.map((project, index) => (
           <ProjectNavigationLink url={`/projects/${index}`} key={index}>
             <div
@@ -118,17 +118,30 @@ export default function Home() {
       </div>
 
       <div className="absolute right-12 bottom-10 flex items-start flex-col gap-3 socials opacity-0">
-        <div className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group">
+        <div
+          onClick={() =>
+            window.location.replace("https://www.linkedin.com/in/javohir-qosimov")
+          }
+          className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group"
+        >
           <i className="fa-brands fa-linkedin group-hover:scale-130 transition-all duration-300"></i>
           <p>Linkedin</p>
         </div>
 
-        <div className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group">
+        <div
+          onClick={() => window.location.replace("https://t.me/QosimovJavohir")}
+          className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group"
+        >
           <i className="fa-brands fa-telegram group-hover:scale-130 transition-all duration-300"></i>
           <p>Telegram</p>
         </div>
 
-        <div className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group">
+        <div
+          onClick={() =>
+            window.location.replace("https://www.artstation.com/haja_q7")
+          }
+          className="text-white flex items-center gap-[10px] cursor-pointer transition-all duration-300 text-sm line-through group"
+        >
           <i className="fa-brands fa-artstation group-hover:scale-130 transition-all duration-300"></i>
           <p>Artstation</p>
         </div>

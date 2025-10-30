@@ -107,15 +107,6 @@ export default function SingleProject() {
         </div>
       </section>
 
-      {/* HERO IMAGE */}
-      <section>
-        <img
-          src={ProjectData.projectBigImage}
-          alt=""
-          className="w-full h-auto max-h-[50vh] md:max-h-[60vh] object-contain hero-img"
-        />
-      </section>
-
       {/* ABOUT SECTION */}
       <section className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[40%_40%_20%] gap-6 md:gap-8 lg:gap-10 intro-text fade-in-section">
         <div>
@@ -189,6 +180,29 @@ export default function SingleProject() {
           <h1 className="font-bold w-[200px]">
             Start with an idea and make it better
           </h1>
+        </div>
+      </section>
+
+      {/* REFERENCES SECTION */}
+      <section className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-12 md:py-16">
+        <div className="mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">References</h2>
+          <div className="w-20 h-1 bg-black dark:bg-white"></div>
+        </div>
+        
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
+          {ProjectData.referenceImages.map((img, index) => (
+            <div key={index} className="break-inside-avoid mb-4 md:mb-6 group">
+              <div className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <img 
+                  src={img} 
+                  alt={`Reference ${index + 1}`}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
