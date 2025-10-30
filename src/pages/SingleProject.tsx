@@ -94,7 +94,7 @@ export default function SingleProject() {
       <section className="flex flex-col md:flex-row justify-between px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-8 md:py-12 intro-header">
         <div className="flex flex-col md:flex-row items-start md:items-end gap-4 md:gap-10 mb-4 md:mb-0">
           <h1 className="text-4xl cursor-pointer transition-all duration-300">
-            JA <br /> VOH <br /> IR'S.
+            JAVOHIR
           </h1>
           <h1 className="uppercase text-2xl text-black font-bold">Camera</h1>
         </div>
@@ -190,13 +190,6 @@ export default function SingleProject() {
             Start with an idea and make it better
           </h1>
         </div>
-      </section>
-
-      {/* FOOTER TITLE */}
-      <section className="flex items-center justify-center px-4 py-12 md:py-24">
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[100px] scale-x-170 uppercase text-black footer-title text-center [text-shadow:-1px_-1px_0_#000,1px_-1px_0_#000,-1px_1px_0_#000,1px_1px_0_#000] px-4">
-          Camera
-        </h1>
       </section>
     </div>
   );
