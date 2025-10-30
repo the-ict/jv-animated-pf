@@ -8,22 +8,6 @@ import { mockProjectData } from "@/constants/data";
 
 gsap.registerPlugin(useGSAP);
 
-interface IPage {
-  title: string;
-  url: string;
-}
-
-const pages: IPage[] = [
-  {
-    title: "Know who i am",
-    url: "/about-me",
-  },
-  {
-    title: "Camera",
-    url: "/camera",
-  },
-];
-
 export default function Home() {
   const [isMouseEntered, setIsMouseEntered] = useState<boolean>(false);
 
