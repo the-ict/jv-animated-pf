@@ -2,6 +2,8 @@ import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { XIcon } from "lucide-react";
+import Resume from "@/assets/Resume.pdf";
+
 
 interface Props {
   children: React.ReactNode;
@@ -63,6 +65,14 @@ const AboutBackgroundContent = () => (
           “From precision engineering to creative character design — a journey of
           turning logic into art.”
         </p>
+      </div>
+
+      <div className="pt-3 border-t border-gray-700">
+        <button className="bg-[#4901ff] text-white cursor-pointer border border-white rounded-full py-3 px-6 font-bold hover:bg-white hover:text-[#4901ff] transition-all duration-300">
+          <a href={Resume} download>
+            Download Cv
+          </a>
+        </button>
       </div>
     </div>
   </div>
