@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import AboutNavigationLink from "@/components/AboutNavigationLink";
 import ProjectNavigationLink from "@/components/ProjectNavigationLink";
+import { mockProjectData } from "@/constants/data";
 
 gsap.registerPlugin(useGSAP);
 
@@ -107,14 +108,14 @@ export default function Home() {
       </div>
 
       <div className="absolute top-20 right-20 h-[calc(100vh-100px)] overflow-y-auto opacity-0 projects">
-        {pages.map((project, index) => (
-          <ProjectNavigationLink url={project.url} key={index}>
+        {mockProjectData.map((project, index) => (
+          <ProjectNavigationLink url={`/projects/${index}`} key={index}>
             <div
               style={{ position: "relative", height: "300px" }}
               className="w-[120vh] px-10"
             >
               <TextPressure
-                text={project.title}
+                text={project.projectName}
                 key={index}
                 className="cursor-pointer"
                 flex={true}

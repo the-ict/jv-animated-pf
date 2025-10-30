@@ -3,29 +3,19 @@ import { useRef, useState, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Image from "@/assets/image.jpg";
-import PortfolioImage1 from "@/assets/camera/javohir-qosimov-render1.jpg";
-import PortfolioImage2 from "@/assets/camera/javohir-qosimov-render2.jpg";
-import PortfolioImage3 from "@/assets/camera/javohir-qosimov-render3.jpg";
-import PortfolioImage4 from "@/assets/camera/javohir-qosimov-render4.jpg";
-import PortfolioImage5 from "@/assets/camera/javohir-qosimov-render5.jpg";
+import { mockProjectData } from "@/constants/data";
+import { useLocation } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const swiperImages = [
-  PortfolioImage1,
-  PortfolioImage2,
-  PortfolioImage3,
-  PortfolioImage4,
-  PortfolioImage5,
-];
 
 export default function SingleProject() {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
+  const ProjectData = mockProjectData[Number(location.pathname.split("/")[2])];
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // -------------------
@@ -37,7 +27,9 @@ export default function SingleProject() {
       gsap.set(".hero-img", { scale: 1.2, opacity: 0 });
       gsap.set(".intro-text", { y: 50, opacity: 0 });
 
-      const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out", duration: 1 },
+      });
 
       tl.to(".intro-header", { y: 0, opacity: 1 })
         .to(".hero-img", { scale: 1, opacity: 1 }, "-=0.5")
@@ -89,7 +81,9 @@ export default function SingleProject() {
       setCurrentSlide((prev) => Math.max(0, prev - 1));
       container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     } else {
-      setCurrentSlide((prev) => Math.min(swiperImages.length - 1, prev + 1));
+      setCurrentSlide((prev) =>
+        Math.min(ProjectData.sliderImages.length - 1, prev + 1)
+      );
       container.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
@@ -115,43 +109,28 @@ export default function SingleProject() {
 
       {/* HERO IMAGE */}
       <section>
-        <img src={Image} alt="" className="w-full h-[60vh] object-cover hero-img" />
+        <img
+          src={ProjectData.projectBigImage}
+          alt=""
+          className="w-full h-[60vh] object-cover hero-img"
+        />
       </section>
 
       {/* ABOUT SECTION */}
       <section className="px-[200px] py-[50px] grid grid-cols-[40%_40%_20%] gap-10 intro-text fade-in-section">
         <div>
-          <h1 className="text-2xl">
-            Studio Mega is a brand design agency based in Portland, Oregon.
-          </h1>
+          <h1 className="text-2xl">{ProjectData.projectLeftTexts.title}</h1>
           <br />
-          <p>
-            With simplicity, flexibility, and maintainability in mind we built a
-            website uniquely mega.
-          </p>
+          <p>{ProjectData.projectLeftTexts.subtitle}</p>
         </div>
 
         <div>
-          <p>
-            Powered by a Craft CMS back-end the website is easy to manage and
-            update. There are several customizable content blocks that can be
-            added and rearranged to make case studies be presented in a
-            meaningful way.
-          </p>
+          <p>{ProjectData.projectRightTexts.title}</p>
         </div>
 
         <div>
-          <h1>www.studiomega.com</h1>
-          <p>Studio Mega</p>
-
-          <b>Agency:</b>
-          <p>Van Holtz Co</p>
-
-          <b>Lead Front-end Developer:</b>
-          <p>Eric Van Holtz</p>
-
-          <b>Lead Back-end Developer:</b>
-          <p>Eric Van Holtz</p>
+          <h1>{ProjectData.projectName}</h1>
+          <p>{ProjectData.createdBy}</p>
         </div>
       </section>
 
@@ -165,18 +144,18 @@ export default function SingleProject() {
             <div
               className="flex h-full transition-transform duration-300 ease-in-out"
               style={{
-                width: `${swiperImages.length * 100}%`,
+                width: `${ProjectData.sliderImages.length * 100}%`,
                 transform: `translateX(-${
-                  (currentSlide * 100) / swiperImages.length
+                  (currentSlide * 100) / ProjectData.sliderImages.length
                 }%)`,
               }}
             >
-              {swiperImages.map((image, index) => (
+              {ProjectData.sliderImages.map((image, index) => (
                 <div
                   key={index}
                   className="w-full h-full flex-shrink-0"
                   style={{
-                    width: `${100 / swiperImages.length}%`,
+                    width: `${100 / ProjectData.sliderImages.length}%`,
                   }}
                 >
                   <img
@@ -192,11 +171,17 @@ export default function SingleProject() {
 
         <div className="flex flex-col items-start gap-10">
           <div className="flex items-center gap-10">
-            <ArrowLeft className="cursor-pointer" onClick={() => handleScroll("left")} />
+            <ArrowLeft
+              className="cursor-pointer"
+              onClick={() => handleScroll("left")}
+            />
             <p>
-              {currentSlide + 1}/{swiperImages.length}
+              {currentSlide + 1}/{ProjectData.sliderImages.length}
             </p>
-            <ArrowRight className="cursor-pointer" onClick={() => handleScroll("right")} />
+            <ArrowRight
+              className="cursor-pointer"
+              onClick={() => handleScroll("right")}
+            />
           </div>
 
           <h1 className="font-bold w-[200px]">
