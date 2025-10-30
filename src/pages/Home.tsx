@@ -46,7 +46,7 @@ export default function Home() {
       className="relative bg-[#4901ff] w-full min-h-screen text-[#ffffff]"
       ref={containerRef}
     >
-      <div className="absolute bottom-30 left-20">
+      <div className="absolute bottom-30 max-lg:top-5 left-20">
         <h1
           ref={logoRef}
           className={`text-4xl scale-x-[1.80] cursor-pointer opacity-0 transition-all duration-300 text-border-shadow big-title ${
@@ -61,7 +61,7 @@ export default function Home() {
         </h1>
       </div>
 
-      <div className="absolute bottom-10 left-13 flex items-center gap-5 links opacity-0 z-10">
+      <div className="absolute bottom-10 left-13 flex items-center max-lg:items-start max-lg:flex-col gap-5 links opacity-0 z-10">
         <div>
           <AboutNavigationLink logoRef={logoRef}>
             3d Modeler & Junior 3d Character Artist
@@ -91,12 +91,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="absolute top-20 right-20 h-[calc(100vh-100px)] overflow-y-auto opacity-0 projects">
+      <div className="absolute top-20 right-20 max-lg:relative max-lg:right-0 max-lg:bottom-20 h-[calc(100vh-100px)] max-lg:h-[60vh] overflow-y-auto opacity-0 projects">
         {mockProjectData.map((project, index) => (
           <ProjectNavigationLink url={`/projects/${index}`} key={index}>
             <div
-              style={{ position: "relative", height: "300px" }}
-              className="w-[120vh] px-10"
+              style={{ position: "relative" }}
+              className="w-[120vh] px-10 max-lg:w-screen h-[300px] max-lg:h-[100px] mt-[50px]"
             >
               <TextPressure
                 text={project.projectName}

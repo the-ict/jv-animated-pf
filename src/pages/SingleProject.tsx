@@ -91,8 +91,8 @@ export default function SingleProject() {
   return (
     <div ref={containerRef} className="min-h-screen relative">
       {/* HEADER */}
-      <section className="flex justify-between px-[200px] py-[50px] intro-header">
-        <div className="flex items-end gap-10">
+      <section className="flex flex-col md:flex-row justify-between px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-8 md:py-12 intro-header">
+        <div className="flex flex-col md:flex-row items-start md:items-end gap-4 md:gap-10 mb-4 md:mb-0">
           <h1 className="text-4xl cursor-pointer transition-all duration-300">
             JA <br /> VOH <br /> IR'S.
           </h1>
@@ -100,7 +100,7 @@ export default function SingleProject() {
         </div>
 
         <div
-          className="w-15 h-15 cursor-pointer border-white border-2 hover:border-black flex items-center justify-center rounded-full"
+          className="w-12 h-12 md:w-15 md:h-15 cursor-pointer border-white border-2 hover:border-black flex items-center justify-center rounded-full self-end md:self-auto"
           onClick={() => window.location.replace("/")}
         >
           <ArrowLeft />
@@ -112,12 +112,12 @@ export default function SingleProject() {
         <img
           src={ProjectData.projectBigImage}
           alt=""
-          className="w-full h-[60vh] object-contain hero-img"
+          className="w-full h-auto max-h-[50vh] md:max-h-[60vh] object-contain hero-img"
         />
       </section>
 
       {/* ABOUT SECTION */}
-      <section className="px-[200px] py-[50px] grid grid-cols-[40%_40%_20%] gap-10 intro-text fade-in-section">
+      <section className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[40%_40%_20%] gap-6 md:gap-8 lg:gap-10 intro-text fade-in-section">
         <div>
           <h1 className="text-2xl">{ProjectData.projectLeftTexts.title}</h1>
           <br />
@@ -135,12 +135,12 @@ export default function SingleProject() {
       </section>
 
       {/* SLIDER SECTION */}
-      <section className="w-full grid grid-cols-[80%_20%] gap-10 px-[200px] fade-in-section">
+      <section className="w-full grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 md:gap-8 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-12 md:py-16 fade-in-section">
         <div
           className="w-full overflow-hidden border-2 border-gray-200 rounded"
           ref={wrapperRef}
         >
-          <div className="relative w-full h-[60vh] overflow-hidden">
+          <div className="relative w-full h-[40vh] sm:h-[50vh] md:h-[60vh] overflow-hidden">
             <div
               className="flex h-full transition-transform duration-300 ease-in-out"
               style={{
@@ -193,8 +193,8 @@ export default function SingleProject() {
       </section>
 
       {/* FOOTER TITLE */}
-      <section className="flex items-center justify-center">
-        <h1 className="text-[100px] scale-x-170 uppercase text-black footer-title [text-shadow:-1px_-1px_0_#000,1px_-1px_0_#000,-1px_1px_0_#000,1px_1px_0_#000]">
+      <section className="flex items-center justify-center px-4 py-12 md:py-24">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[100px] scale-x-170 uppercase text-black footer-title text-center [text-shadow:-1px_-1px_0_#000,1px_-1px_0_#000,-1px_1px_0_#000,1px_1px_0_#000] px-4">
           Camera
         </h1>
       </section>
