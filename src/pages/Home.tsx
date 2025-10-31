@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <div
-      className="relative bg-[#4901ff] w-full min-h-screen text-[#ffffff]"
+      className="relative bg-linear-to-b from-blue-600 to-[#4901ff] w-full min-h-screen text-[#ffffff]"
       ref={containerRef}
     >
       <div className="absolute left-13 bottom-30 z-50 text-6xl big-title opacity-0 max-lg:top-5 max-lg:text-2xl">
